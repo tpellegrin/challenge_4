@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183A93D51E844BFE00321AD0 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A93D41E844BFE00321AD0 /* Tweet.m */; };
 		AF6D26091E84476D002A88F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D26081E84476D002A88F1 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		183A93D31E844BFE00321AD0 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		183A93D41E844BFE00321AD0 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		AF6D26051E84476D002A88F1 /* challenge_4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = challenge_4; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6D26081E84476D002A88F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				AF6D26081E84476D002A88F1 /* main.m */,
+				183A93D31E844BFE00321AD0 /* Tweet.h */,
+				183A93D41E844BFE00321AD0 /* Tweet.m */,
 			);
 			path = challenge_4;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF6D26091E84476D002A88F1 /* main.m in Sources */,
+				183A93D51E844BFE00321AD0 /* Tweet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +252,7 @@
 				AF6D260E1E84476D002A88F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
