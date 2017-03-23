@@ -19,7 +19,7 @@
 
 - (void) tweetWithUser:(User *)user andMessage:(NSString *)message;
 
-- (void) retweet:(int)tweetCode;
+- (void) retweetWithUser:(User *)user andCode:(int)tweetCode;
 
 - (void) like:(int)tweetCode;
 
