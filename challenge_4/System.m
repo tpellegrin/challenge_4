@@ -7,18 +7,51 @@
 //
 
 #import "System.h"
+#import "User.h"
+#import "Tweet.h"
 
 @interface System ()
 
 @property NSMutableArray *users;
-@property NSMutableArray *tweets;
-
+@property NSMutableDictionary *tweets;
+@property int codeTweet;
 
 @end
 
 @implementation System
 
+- (instancetype)initWithName:(NSString *)name
+{
+    self = [super init];
+    if (self) {
+        _name = name;
+        _users = [NSMutableArray new];
+        _tweets = [NSMutableDictionary new];
+        _codeTweet = 0;
+    }
+    return self;
+}
 
+- (void) addUserWithNickName:(NSString *)nickname{
+    
+    //User *user = [[User alloc] initWithName:nickname];
+    User *user = [User new];
+    
+    [self.users addObject:user];
+}
+
+- (void) tweetWithUser:(User *)user andMessage:(NSString *)message{
+    
+    Tweet *tweet = [[Tweet alloc] initWithCode:_codeTweet
+                                       andUser:user
+                                       andDate:[NSDate date]
+                                      andTweet:message];
+    
+    [self.tweets setObject:tweet forKey:[NSNumber numberWithInt:_codeTweet]];
+    
+    _codeTweet++;
+    
+}
 
 - (void) tweet:(NSString *)message{
     

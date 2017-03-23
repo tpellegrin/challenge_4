@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 @class View;
+@class User;
 
 @interface System : NSObject
 
+@property (copy) NSString *name;
 @property (readonly) View *view;
 
-- (void) tweet:(NSString *)message;
+- (void) addUserWithNickName:(NSString *)nickname;
+
+- (void) tweetWithUser:(User *)user andMessage:(NSString *)message;
 
 - (void) retweet:(int)tweetCode;
 

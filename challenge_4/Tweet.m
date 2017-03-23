@@ -7,6 +7,7 @@
 //
 
 #import "Tweet.h"
+#import "User.h"
 
 @implementation Tweet
 
@@ -17,6 +18,7 @@
     if (self) {
         _code = code;
         _user = user;
+        //[user addTweet:self];
         _date = [date copy];
         _tweet = [tweet copy];
         _likesCount = 0;
