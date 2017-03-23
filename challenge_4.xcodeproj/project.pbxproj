@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		183A93D51E844BFE00321AD0 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A93D41E844BFE00321AD0 /* Tweet.m */; };
+		183A93D81E844FB500321AD0 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A93D71E844FB500321AD0 /* Tweet.m */; };
 		AF6D26091E84476D002A88F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D26081E84476D002A88F1 /* main.m */; };
 		AF6D26111E844CB1002A88F1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D26101E844CB1002A88F1 /* User.m */; };
 		AF6D26141E844E4B002A88F1 /* Likes.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D26131E844E4B002A88F1 /* Likes.m */; };
@@ -26,8 +27,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		183A93D31E844BFE00321AD0 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		183A93D41E844BFE00321AD0 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		183A93D61E844FB500321AD0 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		183A93D71E844FB500321AD0 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		AF6D26051E84476D002A88F1 /* challenge_4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = challenge_4; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6D26081E84476D002A88F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AF6D260F1E844CB1002A88F1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -66,11 +68,13 @@
 		AF6D26071E84476D002A88F1 /* challenge_4 */ = {
 			isa = PBXGroup;
 			children = (
-AF6D26081E84476D002A88F1 /* main.m */,
-AF6D260F1E844CB1002A88F1 /* User.h */,
-AF6D26101E844CB1002A88F1 /* User.m */,
-				183A93D31E844BFE00321AD0 /* Tweet.h */,
-				183A93D41E844BFE00321AD0 /* Tweet.m */,
+				183A93D61E844FB500321AD0 /* Tweet.h */,
+				183A93D71E844FB500321AD0 /* Tweet.m */,
+				AF6D26081E84476D002A88F1 /* main.m */,
+				AF6D260F1E844CB1002A88F1 /* User.h */,
+				AF6D26101E844CB1002A88F1 /* User.m */,
+				AF6D26121E844E4B002A88F1 /* Likes.h */,
+				AF6D26131E844E4B002A88F1 /* Likes.m */,
 			);
 			path = challenge_4;
 			sourceTree = "<group>";
@@ -134,6 +138,7 @@ AF6D26101E844CB1002A88F1 /* User.m */,
 			files = (
 				AF6D26141E844E4B002A88F1 /* Likes.m in Sources */,
 				AF6D26111E844CB1002A88F1 /* User.m in Sources */,
+				183A93D81E844FB500321AD0 /* Tweet.m in Sources */,
 				AF6D26091E84476D002A88F1 /* main.m in Sources */,
 				183A93D51E844BFE00321AD0 /* Tweet.m in Sources */,
 			);
