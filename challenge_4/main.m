@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
