@@ -10,4 +10,17 @@
 
 @implementation Likes
 
+- (instancetype)init:(User *)user andLikes:(int)likes andLastLikeDate:(NSDate *)lastLikeDate
+                    andTweet:(NSString *)tweet
+{
+    self = [super init];
+    if (self) {
+        _user = user;
+        _likesCount = likes;
+        _lastLikeDate = lastLikeDate;
+    }
+    return self;
+}
+
+
 @end
