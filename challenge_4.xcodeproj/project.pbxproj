@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AF6D26091E84476D002A88F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D26081E84476D002A88F1 /* main.m */; };
 		AF6D26111E844CB1002A88F1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D26101E844CB1002A88F1 /* User.m */; };
+		AF6D26141E844E4B002A88F1 /* Likes.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D26131E844E4B002A88F1 /* Likes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		AF6D26081E84476D002A88F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AF6D260F1E844CB1002A88F1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		AF6D26101E844CB1002A88F1 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		AF6D26121E844E4B002A88F1 /* Likes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Likes.h; sourceTree = "<group>"; };
+		AF6D26131E844E4B002A88F1 /* Likes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Likes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				AF6D26081E84476D002A88F1 /* main.m */,
 				AF6D260F1E844CB1002A88F1 /* User.h */,
 				AF6D26101E844CB1002A88F1 /* User.m */,
+				AF6D26121E844E4B002A88F1 /* Likes.h */,
+				AF6D26131E844E4B002A88F1 /* Likes.m */,
 			);
 			path = challenge_4;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF6D26141E844E4B002A88F1 /* Likes.m in Sources */,
 				AF6D26111E844CB1002A88F1 /* User.m in Sources */,
 				AF6D26091E84476D002A88F1 /* main.m in Sources */,
 			);
