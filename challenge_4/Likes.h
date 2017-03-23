@@ -13,6 +13,6 @@
 
 @property User *user;
 @property int likesCount;
-@property NSDate lastLikeDate;
+@property NSDate *lastLikeDate;
 
 @end
