@@ -63,7 +63,9 @@
 		AF6D26071E84476D002A88F1 /* challenge_4 */ = {
 			isa = PBXGroup;
 			children = (
-				AF6D26081E84476D002A88F1 /* main.m */,
+AF6D26081E84476D002A88F1 /* main.m */,
+AF6D260F1E844CB1002A88F1 /* User.h */,
+AF6D26101E844CB1002A88F1 /* User.m */,
 				183A93D31E844BFE00321AD0 /* Tweet.h */,
 				183A93D41E844BFE00321AD0 /* Tweet.m */,
 			);
