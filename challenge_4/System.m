@@ -17,6 +17,7 @@
 @property (copy) NSMutableArray *users;
 @property (copy) NSMutableDictionary *tweets;
 @property int codeTweet;
+@property NSArray *lastPage;
 
 @end
 
@@ -56,17 +57,21 @@
                                       andTweet:message];
     [self.tweets setObject:tweet forKey:[NSNumber numberWithInt:_codeTweet]];
     _codeTweet++;
+    [self showTweets:_lastPage];
 }
 
 - (void) retweetWithCode:(int)tweetCode{
     Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
     [_user addTweet:tweetOwner];
+    [self showTweets:_lastPage];
+
 }
 
 - (void) likeTweetWithCode:(int)tweetCode{
     Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
     [tweetOwner incrementLikesCount];
     [_user addLike:tweetOwner];
+    [self showTweets:_lastPage];
 }
 
 - (void) showMeTweets{
@@ -90,6 +95,7 @@
 }
 
 - (void) showTweets:(NSArray *)list{
+    _lastPage = list;
     NSLog(@"%@\n", _name);
     for (Tweet *tweet in list) {
         NSLog(@"%@", tweet);
