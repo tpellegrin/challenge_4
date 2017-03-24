@@ -64,9 +64,9 @@
 
 
 - (void) showMeTweets{
-//    for (Tweet t in _tweets) {
-//        
-//    }
+    for (Tweet *t in [_user getTweetsList]) {
+        NSLog(@"%@", t.tweet);
+    }
 }
 
 
