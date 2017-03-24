@@ -94,7 +94,7 @@
     for (Tweet *tweet in list) {
         NSLog(@"%@", tweet);
     }
-    NSLog(@"\n[tweet 0][tweet 1][retweet 2][like 3][show profile 4][show my tweets 5][liked tweets 6]\n");
+    NSLog(@"\n[sair 0][tweet 1][retweet 2][like 3][show profile 4][show my tweets 5][liked tweets 6]\n");
 }
 
 - (void) populing{

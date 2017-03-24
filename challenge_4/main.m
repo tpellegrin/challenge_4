@@ -15,20 +15,59 @@ int main(int argc, const char * argv[]) {
         System *system = [[System alloc] initWithName:@"Twitter 4.2"];
         
         [system showMeProfile];
-        int process = 0;
+        
+        [system tweetMessage:@"teste"];
+        BOOL process = YES ;
         
         do {
-            char word [40];
-            scanf("%s",word);
             
-            NSString * userInput = [[NSString alloc] initWithCString: word encoding: NSUTF8StringEncoding];
+            NSFileHandle *input = [NSFileHandle fileHandleWithStandardInput];
+            NSData *inputData = [input availableData];
             
-            long long scannedNumber;
-            NSScanner *scanner = [NSScanner scannerWithString:userInput];
-            [scanner scanLongLong:&scannedNumber];
-            NSNumber *number = [NSNumber numberWithLongLong: scannedNumber];
-            NSLog(@"%@", number);
-        } while (process!=0);
+            NSString *str = [[NSString alloc] initWithData:inputData encoding:NSUTF8StringEncoding];
+            
+            NSRange rng = [str rangeOfString:@" "];
+            NSString *first = [str substringToIndex:rng.location];
+            NSString *last = [str substringFromIndex:rng.location + 1];
+            
+            NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+            NSNumber *myNumber = [numberFormatter numberFromString:first];
+            
+            switch ([myNumber integerValue]) {
+                case 1:
+                    [system tweetMessage:last];
+                    break;
+                    
+                case 2:
+                    [system retweetWithCode:[[numberFormatter numberFromString:last] intValue]];
+                    break;
+                    
+                case 3:
+                    [system likeTweetWithCode:[[numberFormatter numberFromString:last] intValue]];
+                    break;
+                
+                case 4:
+                    [system showMeProfile];
+                    break;
+                    
+                case 5:
+                    [system showMeTweets];
+                    break;
+                    
+                case 6:
+                    [system showTweetsLikeds];
+                    break;
+                    
+                case 0:
+                    process = NO;
+                    break;
+                    
+                
+                default:
+                    process = NO;
+                    break;
+            }
+        } while (process==YES);
         
     }
     return 0;
