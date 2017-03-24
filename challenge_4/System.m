@@ -17,6 +17,7 @@
 @property (copy) NSMutableArray *users;
 @property (copy) NSMutableDictionary *tweets;
 @property int codeTweet;
+@property NSArray *lastPage;
 
 @end
 
@@ -46,7 +47,7 @@
     NSDateComponents* comps = [[NSDateComponents alloc] init];
     NSCalendar* calendar = [NSCalendar currentCalendar];
     NSDate* date = [NSDate date];
-    comps.day = arc4random_uniform(30) - 55;
+    comps.day = arc4random_uniform(30) - 57;
     comps.year = 2017;
     comps.month = 3;
     date = [calendar dateFromComponents:comps];
@@ -56,17 +57,21 @@
                                       andTweet:message];
     [self.tweets setObject:tweet forKey:[NSNumber numberWithInt:_codeTweet]];
     _codeTweet++;
+    [self showTweets:_lastPage];
 }
 
 - (void) retweetWithCode:(int)tweetCode{
     Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
     [_user addTweet:tweetOwner];
+    [self showTweets:_lastPage];
+
 }
 
 - (void) likeTweetWithCode:(int)tweetCode{
     Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
     [tweetOwner incrementLikesCount];
     [_user addLike:tweetOwner];
+    [self showTweets:_lastPage];
 }
 
 - (void) showMeTweets{
@@ -90,6 +95,7 @@
 }
 
 - (void) showTweets:(NSArray *)list{
+    _lastPage = list;
     NSLog(@"%@\n", _name);
     for (Tweet *tweet in list) {
         NSLog(@"%@", tweet);
@@ -110,9 +116,19 @@
             [self tweetMessage:[NSString stringWithFormat:@"Loren Ipsum %d",(arc4random()%(100))]];
         }
     
+        NSDateComponents* comps = [[NSDateComponents alloc] init];
+        NSCalendar* calendar = [NSCalendar currentCalendar];
+        NSDate* date = [NSDate date];
+        comps.day = arc4random_uniform(30) - 57;
+        comps.year = 2017;
+        comps.month = 3;
+        date = [calendar dateFromComponents:comps];
     
-    _user = [_users objectAtIndex:0];
+        for (Tweet *t in [_tweets allValues]) {
+            t.date = date;
+        }
     
+        _user = [_users objectAtIndex:0];
 }
 
 @end
