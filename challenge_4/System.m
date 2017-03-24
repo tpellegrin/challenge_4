@@ -7,6 +7,7 @@
 //
 
 #import "System.h"
+#import "Likes.h"
 #import "User.h"
 #import "Tweet.h"
 
@@ -50,9 +51,10 @@
 
 - (void) retweetWithUser:(User *)user andTweetCode:(int)tweetCode{
     Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
+    Likes *like = [[Likes alloc] init:user andLastLikeDate:[NSDate date] andTweet:tweetOwner];
     [tweetOwner incrementLikesCount];
-    [user addLikes:[tweetOwner.user]];
-    //[user addTweet:[tweetOwner]];
+    [user addLike:like];
+    [user addTweet:tweetOwner];
 }
 
 - (void) likeWithUser:(User *)user andTweetCode:(int)tweetCode{
