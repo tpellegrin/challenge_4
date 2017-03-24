@@ -46,7 +46,7 @@
     NSDateComponents* comps = [[NSDateComponents alloc] init];
     NSCalendar* calendar = [NSCalendar currentCalendar];
     NSDate* date = [NSDate date];
-    comps.day = arc4random_uniform(30);
+    comps.day = arc4random_uniform(30) - 55;
     comps.year = 2017;
     comps.month = 3;
     date = [calendar dateFromComponents:comps];
