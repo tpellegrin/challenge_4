@@ -14,11 +14,11 @@
 
 @property NSString *nickname;
 
-- (instancetype)initWithName:(NSString *)name;
+- (instancetype)initWithName:(NSString *)nickname;
 
 - (void) addTweet:(Tweet *)tweet;
 
-- (void) addLikes:(Likes *)likes;
+- (void) addLikes:(Likes *)like;
 
 - (NSArray *) getLikesList;
 
