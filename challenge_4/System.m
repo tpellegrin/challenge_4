@@ -13,6 +13,7 @@
 
 @interface System ()
 
+@property User *user;
 @property NSMutableArray *users;
 @property NSMutableDictionary *tweets;
 @property int codeTweet;
@@ -65,7 +66,9 @@
 
 
 - (void) showMeTweets{
-    
+//    for (Tweet t in _tweets) {
+//        
+//    }
 }
 
 
