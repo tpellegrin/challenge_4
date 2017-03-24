@@ -7,11 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Tweet;
+@class Likes;
 
 @interface User : NSObject
 
 @property NSString *nickname;
-@property NSArray *tweets;
-@property NSArray *likes;
+
+- (instancetype)initWithName:(NSString *)name;
+
+- (void) addTweet:(Tweet *)tweet;
+
+- (void) addLikes:(Likes *)likes;
+
+- (NSArray *) getLikesList;
+
+- (NSArray *) getTweetsList;
 
 @end
+
+  
