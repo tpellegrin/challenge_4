@@ -37,7 +37,8 @@
 }
 
 - (void) addLike:(Likes *)like{
-  [likes addObject:like]; 
+    //verificar se o like ja esta no array
+    //[likes addObject:like]; 
 }
 
 - (NSArray *) getLikesList{
