@@ -17,14 +17,16 @@
 
 - (void) addUserWithNickName:(NSString *)nickname;
 
-- (void) tweetWithUser:(NSString *)message;
+- (void) tweetMessage:(NSString *)message;
 
-- (void) retweetWithUser:(int)tweetCode;
+- (void) retweetWithCode:(int)tweetCode;
 
-- (void) likeWithUser:(int)tweetCode;
+- (void) likeTweetWithCode:(int)tweetCode;
 
 - (void) showMeTweets;
 
 - (void) showMeProfile;
+
+- (void) showTweetsLikeds;
 
 @end

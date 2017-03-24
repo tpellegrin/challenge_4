@@ -18,7 +18,7 @@
 
 - (void) addTweet:(Tweet *)tweet;
 
-- (void) addLike:(Likes *)like;
+- (void) addLike:(Tweet *)like;
 
 - (NSArray *) getLikesList;
 

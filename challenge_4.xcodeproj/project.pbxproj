@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		183A93E81E8453A100321AD0 /* Likes.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A93E01E8453A100321AD0 /* Likes.m */; };
 		183A93E91E8453A100321AD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A93E11E8453A100321AD0 /* main.m */; };
 		183A93EA1E8453A100321AD0 /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A93E31E8453A100321AD0 /* System.m */; };
 		183A93EB1E8453A100321AD0 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A93E51E8453A100321AD0 /* Tweet.m */; };
@@ -27,8 +26,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		183A93DF1E8453A100321AD0 /* Likes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Likes.h; sourceTree = "<group>"; };
-		183A93E01E8453A100321AD0 /* Likes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Likes.m; sourceTree = "<group>"; };
 		183A93E11E8453A100321AD0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		183A93E21E8453A100321AD0 /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.h; sourceTree = "<group>"; };
 		183A93E31E8453A100321AD0 /* System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.m; sourceTree = "<group>"; };
@@ -70,8 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				183A93E11E8453A100321AD0 /* main.m */,
-				183A93DF1E8453A100321AD0 /* Likes.h */,
-				183A93E01E8453A100321AD0 /* Likes.m */,
 				183A93E21E8453A100321AD0 /* System.h */,
 				183A93E31E8453A100321AD0 /* System.m */,
 				183A93E41E8453A100321AD0 /* Tweet.h */,
@@ -140,7 +135,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				183A93EA1E8453A100321AD0 /* System.m in Sources */,
-				183A93E81E8453A100321AD0 /* Likes.m in Sources */,
 				183A93EC1E8453A100321AD0 /* User.m in Sources */,
 				183A93EB1E8453A100321AD0 /* Tweet.m in Sources */,
 				183A93E91E8453A100321AD0 /* main.m in Sources */,
