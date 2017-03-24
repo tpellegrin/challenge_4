@@ -15,6 +15,8 @@
 @property (copy) NSString *name;
 @property (readonly) View *view;
 
+- (instancetype)initWithName:(NSString *)name;
+
 - (void) addUserWithNickName:(NSString *)nickname;
 
 - (void) tweetMessage:(NSString *)message;

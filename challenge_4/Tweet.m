@@ -31,7 +31,14 @@
 }
 
 -(NSString *)description {
-    return [NSString stringWithFormat:@("----------------------------/n User: %@ /n Code: %@ Date: %@ Tweet: %@ /n----------------------------"), _user, _code, _date, _tweet];
+    NSMutableString *desc =  [NSMutableString new ];
+    [desc appendFormat:@"----------------------------\n"];
+    [desc appendFormat:@"%d - %@\n", _code, _user];
+    [desc appendFormat:@"%@\n", _tweet];
+    [desc appendFormat:@"%@ - %d\n", _date, _likesCount];
+    [desc appendFormat:@"----------------------------\n"];
+    
+    return desc;
 }
 
 @end

@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "System.h"
 #define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, guys!");
+        System *system = [[System alloc] initWithName:@"Twitter 4.2"];
+        
+        [system showMeTweets];
+        
+        
     }
     return 0;
 }

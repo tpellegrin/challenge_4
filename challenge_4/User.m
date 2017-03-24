@@ -49,5 +49,10 @@
 - (NSArray *) getTweetsList{
   return [_tweets copy];
 }
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@", _nickname];
+}
   
 @end

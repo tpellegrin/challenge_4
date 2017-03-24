@@ -9,6 +9,7 @@
 #import "System.h"
 #import "User.h"
 #import "Tweet.h"
+#define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 
 @interface System ()
 
@@ -97,7 +98,7 @@
     
     for (User *actUser in _users){
         _user = actUser;
-        for(int numTweets = 0; numTweets < (2-arc4random()%(4-2)); numTweets++){
+        for(int numTweets = 0; numTweets < (2+arc4random()%(8-2)); numTweets++){
             [self tweetMessage:[NSString stringWithFormat:@"Loren Ipsum %d",(arc4random()%(100))]];
         }
     }
