@@ -6,11 +6,8 @@
 //  Copyright © 2017 TP. All rights reserved.
 //
 
-
-
-
 #import "User.h"
-
+#import "Likes.h"
 
 @interface User ()
 
@@ -33,21 +30,24 @@
 }
 
 - (void) addTweet:(Tweet *)tweet{
-  [tweets addObject:tweet]; 
+  [_tweets addObject:tweet];
 }
 
 - (void) addLike:(Likes *)like{
-    //verificar se o like ja esta no array
-    //[likes addObject:like]; 
+    for (Likes *l in _likes) {
+        if ([like isEqual:l]) {
+            return;
+        }
+    }
+    [_likes addObject:like];
 }
 
 - (NSArray *) getLikesList{
-  return [likes copy];
+  return [_likes copy];
 }
 
 - (NSArray *) getTweetsList{
-  return [tweets copy];
+  return [_tweets copy];
 }
-
   
 @end
