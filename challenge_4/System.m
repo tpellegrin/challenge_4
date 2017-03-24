@@ -83,11 +83,11 @@
 }
 
 - (void) showTweets:(NSArray *)list{
-    NSLog(@"%@", _name);
+    NSLog(@"%@\n", _name);
     for (Tweet *tweet in list) {
-        NSLog(@"%@\n", tweet);
+        NSLog(@"%@", tweet);
     }
-    NSLog(@"\n[tweet 1][retweet 2][like 3][show profile 4][show my tweets 5][liked tweets 6]");
+    NSLog(@"\n[tweet 0][tweet 1][retweet 2][like 3][show profile 4][show my tweets 5][liked tweets 6]\n");
 }
 
 - (void) populing{
@@ -97,12 +97,12 @@
     [self addUserWithNickName:@"diego"];
     [self addUserWithNickName:@"eu"];
     
-    for (User *actUser in _users){
-        _user = actUser;
-        for(int numTweets = 0; numTweets < (2+arc4random()%(8-2)); numTweets++){
+    
+        for(int numTweets = 0; numTweets < (2+arc4random()%(20-2)); numTweets++){
+            _user = [_users objectAtIndex:(arc4random()%([_users count]))];
             [self tweetMessage:[NSString stringWithFormat:@"Loren Ipsum %d",(arc4random()%(100))]];
         }
-    }
+    
     
     _user = [_users objectAtIndex:0];
     

@@ -14,8 +14,14 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         System *system = [[System alloc] initWithName:@"Twitter 4.2"];
         
-        [system showMeTweets];
+        [system showMeProfile];
+        int process = 0;
         
+        do {
+            
+            
+            
+        } while (process!=0);
         
     }
     return 0;
