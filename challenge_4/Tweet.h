@@ -15,7 +15,7 @@
 
 @property (readonly) int code;
 @property (weak, readonly) User *user;
-@property (copy, readonly) NSDate *date;
+@property (copy) NSDate *date;
 @property (copy, readonly) NSString *tweet;
 @property (readonly) int likesCount;
 
