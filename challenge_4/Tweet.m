@@ -30,4 +30,8 @@
     _likesCount++;
 }
 
+-(NSString *)description {
+    return [NSString stringWithFormat:@("----------------------------/n User: %@ /n Code: %@ Date: %@ Tweet: %@ /n----------------------------"), _user, _code, _date, _tweet];
+}
+
 @end
