@@ -31,11 +31,15 @@
 }
 
 -(NSString *)description {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"DD/MM/YYYY"];
+    
+    
     NSMutableString *desc =  [NSMutableString new ];
     [desc appendFormat:@"----------------------------\n"];
     [desc appendFormat:@"%d - %@\n", _code, _user];
     [desc appendFormat:@"%@\n", _tweet];
-    [desc appendFormat:@"%@ - %d\n", _date, _likesCount];
+    [desc appendFormat:@"%@ - likes: %d\n", [formatter stringFromDate:_date], _likesCount];
     [desc appendFormat:@"----------------------------\n"];
     
     return desc;
