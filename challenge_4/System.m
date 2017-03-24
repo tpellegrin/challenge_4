@@ -17,7 +17,7 @@
 @property (copy) NSMutableArray *users;
 @property (copy) NSMutableDictionary *tweets;
 @property int codeTweet;
-@property NSArray *lastPage;
+@property int lastPage;
 
 @end
 
@@ -31,6 +31,7 @@
         _users = [NSMutableArray new];
         _tweets = [NSMutableDictionary new];
         _codeTweet = 0;
+        _lastPage = 1;
         [self populing];
     }
     return self;
@@ -44,43 +45,39 @@
 }
 
 - (void) tweetMessage:(NSString *)message{
-    NSDateComponents* comps = [[NSDateComponents alloc] init];
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSDate* date = [NSDate date];
-    comps.day = arc4random_uniform(30) - 57;
-    comps.year = 2017;
-    comps.month = 3;
-    date = [calendar dateFromComponents:comps];
     Tweet *tweet = [[Tweet alloc] initWithCode:_codeTweet
                                        andUser:_user
-                                       andDate:date
+                                       andDate:[NSDate date]
                                       andTweet:message];
     [self.tweets setObject:tweet forKey:[NSNumber numberWithInt:_codeTweet]];
     _codeTweet++;
-    [self showTweets:_lastPage];
+    [self atualiza];
 }
 
 - (void) retweetWithCode:(int)tweetCode{
-    Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
+    Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:tweetCode]];
     [_user addTweet:tweetOwner];
-    [self showTweets:_lastPage];
-
+    tweetOwner.date = [NSDate date];
+    [self atualiza];
+ 
 }
 
 - (void) likeTweetWithCode:(int)tweetCode{
-    Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
+    Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:tweetCode]];
     [tweetOwner incrementLikesCount];
     [_user addLike:tweetOwner];
-    [self showTweets:_lastPage];
+    [self atualiza];
 }
 
 - (void) showMeTweets{
+    _lastPage = 0;
     [self showTweets:[_user getTweetsList]];
 }
 
 - (void) showMeProfile{
+    _lastPage = 1;
     NSArray *allTweets = [[[self.tweets allValues] copy]
-                          sortedArrayUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO]]
+                          sortedArrayUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES]]
                           ];
     
     [self showTweets:allTweets];
@@ -88,19 +85,30 @@
 }
 
 - (void) showTweetsLikeds{
+    _lastPage = 2;
     NSArray *allLikeds = [[self.user getLikesList]
-                          sortedArrayUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO]]
+                          sortedArrayUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES]]
                           ];
     [self showTweets:allLikeds];
 }
 
 - (void) showTweets:(NSArray *)list{
-    _lastPage = list;
     NSLog(@"%@\n", _name);
     for (Tweet *tweet in list) {
         NSLog(@"%@", tweet);
     }
     NSLog(@"\n[sair 0][tweet 1][retweet 2][like 3][show profile 4][show my tweets 5][liked tweets 6]\n");
+}
+
+- (void) atualiza{
+    if(_lastPage==0){
+        [self showMeTweets];
+        
+    } else if (_lastPage==1) {
+        [self showMeProfile];
+    } else if (_lastPage==2)
+        [self showTweetsLikeds];
+    
 }
 
 - (void) populing{
@@ -119,12 +127,13 @@
         NSDateComponents* comps = [[NSDateComponents alloc] init];
         NSCalendar* calendar = [NSCalendar currentCalendar];
         NSDate* date = [NSDate date];
-        comps.day = arc4random_uniform(30) - 57;
-        comps.year = 2017;
-        comps.month = 3;
-        date = [calendar dateFromComponents:comps];
+    
     
         for (Tweet *t in [_tweets allValues]) {
+            comps.day = arc4random_uniform(30) - 57;
+            comps.year = 2017;
+            comps.month = 3;
+            date = [calendar dateFromComponents:comps];
             t.date = date;
         }
     

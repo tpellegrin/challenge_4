@@ -16,7 +16,6 @@ int main(int argc, const char * argv[]) {
         
         [system showMeProfile];
         
-        [system tweetMessage:@"teste"];
         BOOL process = YES ;
         
         do {
@@ -25,25 +24,40 @@ int main(int argc, const char * argv[]) {
             NSData *inputData = [input availableData];
             
             NSString *str = [[NSString alloc] initWithData:inputData encoding:NSUTF8StringEncoding];
+            NSString *first = [str componentsSeparatedByString:@" "][0];
             
-            NSRange rng = [str rangeOfString:@" "];
-            NSString *first = [str substringToIndex:rng.location];
-            NSString *last = [str substringFromIndex:rng.location + 1];
             
-            NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-            NSNumber *myNumber = [numberFormatter numberFromString:first];
+            NSString *last;
+            NSRange rng;
             
-            switch ([myNumber integerValue]) {
+            int scannedNumber;
+            NSScanner *scanner = [NSScanner scannerWithString:first];
+            [scanner scanInt:&scannedNumber];
+            NSLog(@"%@", first);
+            
+            switch (scannedNumber) {
                 case 1:
+                    rng = [str rangeOfString:@" "];
+                    last = [str substringFromIndex:rng.location + 1];
+                    
                     [system tweetMessage:last];
                     break;
                     
                 case 2:
-                    [system retweetWithCode:[[numberFormatter numberFromString:last] intValue]];
+                    last = [str componentsSeparatedByString:@" "][1];
+                    int scannedNumber2;
+                    scanner = [NSScanner scannerWithString:last];
+                    [scanner scanInt:&scannedNumber2];
+                    [system retweetWithCode:scannedNumber2];
                     break;
                     
                 case 3:
-                    [system likeTweetWithCode:[[numberFormatter numberFromString:last] intValue]];
+                    last = [str componentsSeparatedByString:@" "][1];
+                    int scannedNumber3;
+                    scanner = [NSScanner scannerWithString:last];
+                    [scanner scanInt:&scannedNumber3];
+                    
+                    [system likeTweetWithCode:scannedNumber3];
                     break;
                 
                 case 4:

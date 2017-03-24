@@ -32,7 +32,7 @@
 
 -(NSString *)description {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"DD/MM/YYYY"];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
     
     
     NSMutableString *desc =  [NSMutableString new ];
