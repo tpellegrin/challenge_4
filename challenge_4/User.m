@@ -7,7 +7,7 @@
 //
 
 #import "User.h"
-#import "Likes.h"
+#import "Tweet.h"
 
 @interface User ()
 
@@ -33,8 +33,8 @@
   [_tweets addObject:tweet];
 }
 
-- (void) addLike:(Likes *)like{
-    for (Likes *l in _likes) {
+- (void) addLike:(Tweet *)like{
+    for (Tweet *l in _likes) {
         if ([like isEqual:l]) {
             return;
         }

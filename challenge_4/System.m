@@ -7,15 +7,14 @@
 //
 
 #import "System.h"
-#import "Likes.h"
 #import "User.h"
 #import "Tweet.h"
 
 @interface System ()
 
 @property User *user;
-@property NSMutableArray *users;
-@property NSMutableDictionary *tweets;
+@property (copy) NSMutableArray *users;
+@property (copy) NSMutableDictionary *tweets;
 @property int codeTweet;
 
 @end
@@ -41,7 +40,7 @@
     [self.users addObject:user];
 }
 
-- (void) tweetWithUser:(NSString *)message{
+- (void) tweetMessage:(NSString *)message{
     Tweet *tweet = [[Tweet alloc] initWithCode:_codeTweet
                                        andUser:_user
                                        andDate:[NSDate date]
@@ -50,26 +49,41 @@
     _codeTweet++;
 }
 
-- (void) retweetWithUser:(int)tweetCode{
+- (void) retweetWithCode:(int)tweetCode{
     Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
     [_user addTweet:tweetOwner];
 }
 
-- (void) likeWithUser:(int)tweetCode{
+- (void) likeTweetWithCode:(int)tweetCode{
     Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
     [tweetOwner incrementLikesCount];
-    Likes *like = [[Likes alloc] init:_user andLastLikeDate:[NSDate date] andTweet:tweetOwner];
-    [_user addLike:like];
+    [_user addLike:tweetOwner];
 }
 
 - (void) showMeTweets{
-    for (Tweet *t in [_user getTweetsList]) {
-        NSLog(@"%@", t.tweet);
-    }
+    [self showTweets:[_user getTweetsList]];
 }
 
 - (void) showMeProfile{
+    NSArray *allTweets = [[[self.tweets allValues] copy]
+                          sortedArrayUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO]]
+                          ];
     
+    [self showTweets:allTweets];
+    
+}
+
+- (void) showTweetsLikeds{
+    NSArray *allLikeds = [[self.user getLikesList]
+                          sortedArrayUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO]]
+                          ];
+    [self showTweets:allLikeds];
+}
+
+- (void) showTweets:(NSArray *)list{
+    for (Tweet *tweet in list) {
+        NSLog(@"%@", tweet);
+    }
 }
 
 
