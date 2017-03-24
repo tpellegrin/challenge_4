@@ -41,25 +41,25 @@
     [self.users addObject:user];
 }
 
-- (void) tweetWithUser:(User *)user andMessage:(NSString *)message{
+- (void) tweetWithUser:(NSString *)message{
     Tweet *tweet = [[Tweet alloc] initWithCode:_codeTweet
-                                       andUser:user
+                                       andUser:_user
                                        andDate:[NSDate date]
                                       andTweet:message];
     [self.tweets setObject:tweet forKey:[NSNumber numberWithInt:_codeTweet]];
     _codeTweet++;
 }
 
-- (void) retweetWithUser:(User *)user andTweetCode:(int)tweetCode{
+- (void) retweetWithUser:(int)tweetCode{
     Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
-    [user addTweet:tweetOwner];
+    [_user addTweet:tweetOwner];
 }
 
-- (void) likeWithUser:(User *)user andTweetCode:(int)tweetCode{
+- (void) likeWithUser:(int)tweetCode{
     Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
     [tweetOwner incrementLikesCount];
-    Likes *like = [[Likes alloc] init:user andLastLikeDate:[NSDate date] andTweet:tweetOwner];
-    [user addLike:like];
+    Likes *like = [[Likes alloc] init:_user andLastLikeDate:[NSDate date] andTweet:tweetOwner];
+    [_user addLike:like];
 }
 
 - (void) showMeTweets{
