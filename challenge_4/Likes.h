@@ -12,7 +12,6 @@
 @interface Likes : NSObject
 
 @property User *user;
-@property int likesCount;
 @property NSDate *lastLikeDate;
 
 @end
