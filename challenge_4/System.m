@@ -46,7 +46,7 @@
     NSDateComponents* comps = [[NSDateComponents alloc] init];
     NSCalendar* calendar = [NSCalendar currentCalendar];
     NSDate* date = [NSDate date];
-    comps.day = arc4random_uniform(30) - 55;
+    comps.day = arc4random_uniform(30) - 57;
     comps.year = 2017;
     comps.month = 3;
     date = [calendar dateFromComponents:comps];
@@ -110,9 +110,19 @@
             [self tweetMessage:[NSString stringWithFormat:@"Loren Ipsum %d",(arc4random()%(100))]];
         }
     
+        NSDateComponents* comps = [[NSDateComponents alloc] init];
+        NSCalendar* calendar = [NSCalendar currentCalendar];
+        NSDate* date = [NSDate date];
+        comps.day = arc4random_uniform(30) - 57;
+        comps.year = 2017;
+        comps.month = 3;
+        date = [calendar dateFromComponents:comps];
     
-    _user = [_users objectAtIndex:0];
+        for (Tweet *t in [_tweets allValues]) {
+            t.date = date;
+        }
     
+        _user = [_users objectAtIndex:0];
 }
 
 @end
