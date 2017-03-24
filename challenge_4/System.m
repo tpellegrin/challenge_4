@@ -29,6 +29,7 @@
         _users = [NSMutableArray new];
         _tweets = [NSMutableDictionary new];
         _codeTweet = 0;
+        [self populing];
     }
     return self;
 }
@@ -81,10 +82,28 @@
 }
 
 - (void) showTweets:(NSArray *)list{
+    
     for (Tweet *tweet in list) {
         NSLog(@"%@", tweet);
     }
 }
 
+- (void) populing{
+    [self addUserWithNickName:@"antonio"];
+    [self addUserWithNickName:@"bianca"];
+    [self addUserWithNickName:@"camila"];
+    [self addUserWithNickName:@"diego"];
+    [self addUserWithNickName:@"eu"];
+    
+    for (User *actUser in _users){
+        _user = actUser;
+        for(int numTweets = 0; numTweets < (2-arc4random()%(4-2)); numTweets++){
+            [self tweetMessage:[NSString stringWithFormat:@"Loren Ipsum %d",(arc4random()%(100))]];
+        }
+    }
+    
+    _user = [_users objectAtIndex:0];
+    
+}
 
 @end
