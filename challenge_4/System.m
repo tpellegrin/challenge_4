@@ -52,16 +52,14 @@
 
 - (void) retweetWithUser:(User *)user andTweetCode:(int)tweetCode{
     Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
-    Likes *like = [[Likes alloc] init:user andLastLikeDate:[NSDate date] andTweet:tweetOwner];
-    [tweetOwner incrementLikesCount];
-    [user addLike:like];
     [user addTweet:tweetOwner];
 }
 
 - (void) likeWithUser:(User *)user andTweetCode:(int)tweetCode{
     Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
     [tweetOwner incrementLikesCount];
-    //[user addLikes:[tweetOwner.user]];
+    Likes *like = [[Likes alloc] init:user andLastLikeDate:[NSDate date] andTweet:tweetOwner];
+    [user addLike:like];
 }
 
 

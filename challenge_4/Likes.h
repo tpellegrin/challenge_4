@@ -14,4 +14,7 @@
 @property User *user;
 @property NSDate *lastLikeDate;
 
+- (instancetype)init:(User *)user andLastLikeDate:(NSDate *)lastLikeDate
+            andTweet:(Tweet *)tweet;
+
 @end
