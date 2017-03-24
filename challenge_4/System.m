@@ -62,20 +62,13 @@
     [user addLike:like];
 }
 
-
 - (void) showMeTweets{
     for (Tweet *t in [_user getTweetsList]) {
         NSLog(@"%@", t.tweet);
     }
 }
 
-
 - (void) showMeProfile{
-    
-}
-
-
-- (void) showProfile:(NSString *)nickname{
     
 }
 

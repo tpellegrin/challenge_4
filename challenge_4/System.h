@@ -27,7 +27,4 @@
 
 - (void) showMeProfile;
 
-- (void) showProfile:(NSString *)nickname;
-
-
 @end
