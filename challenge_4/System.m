@@ -43,9 +43,14 @@
 }
 
 - (void) tweetMessage:(NSString *)message{
+    NSDateComponents* comps = [[NSDateComponents alloc] init];
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDate* date = [NSDate date];
+    comps.day = arc4random_uniform(30);
+    date = [calendar dateFromComponents:comps];
     Tweet *tweet = [[Tweet alloc] initWithCode:_codeTweet
                                        andUser:_user
-                                       andDate:[NSDate date]
+                                       andDate:date
                                       andTweet:message];
     [self.tweets setObject:tweet forKey:[NSNumber numberWithInt:_codeTweet]];
     _codeTweet++;
