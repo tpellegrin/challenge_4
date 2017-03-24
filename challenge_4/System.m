@@ -13,8 +13,8 @@
 
 @interface System ()
 
-@property NSMutableArray *users;
-@property NSMutableDictionary *tweets;
+@property (copy) NSMutableArray *users;
+@property (copy) NSMutableDictionary *tweets;
 @property int codeTweet;
 
 @end
@@ -68,6 +68,13 @@
 
 
 - (void) showMeProfile{
+    NSArray *allTweets = [[[self.tweets allValues] copy]
+                          sortedArrayUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO]]
+                          ];
+    
+    for (Tweet *tweet in allTweets) {
+        NSLog(@"%@", tweet);
+    }
     
 }
 
