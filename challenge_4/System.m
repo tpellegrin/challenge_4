@@ -34,35 +34,31 @@
 
 - (void) addUserWithNickName:(NSString *)nickname{
     
-    //User *user = [[User alloc] initWithName:nickname];
-    User *user = [User new];
+    User *user = [[User alloc] initWithName:nickname];
     
     [self.users addObject:user];
 }
 
 - (void) tweetWithUser:(User *)user andMessage:(NSString *)message{
-    
     Tweet *tweet = [[Tweet alloc] initWithCode:_codeTweet
                                        andUser:user
                                        andDate:[NSDate date]
                                       andTweet:message];
-    
     [self.tweets setObject:tweet forKey:[NSNumber numberWithInt:_codeTweet]];
-    
     _codeTweet++;
-    
 }
 
-- (void) tweetWithUser:(User *)user andMessage:(NSString *)message{
-    
+- (void) retweetWithUser:(User *)user andTweetCode:(int)tweetCode{
+    Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
+    [tweetOwner incrementLikesCount];
+    [user addLikes:[tweetOwner.user]];
+    //[user addTweet:[tweetOwner]];
 }
 
-- (void) retweetWithUser:(User *)user andCode:(int)tweetCode{
-    
-}
-
-- (void) like:(int)tweetCode{
-    
+- (void) likeWithUser:(User *)user andTweetCode:(int)tweetCode{
+    Tweet *tweetOwner = _tweets[[NSNumber numberWithInt:_codeTweet]];
+    [tweetOwner incrementLikesCount];
+    //[user addLikes:[tweetOwner.user]];
 }
 
 
